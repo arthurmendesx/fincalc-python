@@ -43,6 +43,7 @@ def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float,
         saldo = (saldo + aporte_mensal) * (1 + taxa_mensal)
     return saldo
 
+
 def calcular_irrf(salario_bruto: float) -> float:
     """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
     if salario_bruto <= 2259.20:
