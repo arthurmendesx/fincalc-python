@@ -5,12 +5,20 @@ def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> floa
     juros = capital * (taxa_anual / 100) * anos
     return capital + juros
 
+
 def calcular_juros_compostos(capital: float, taxa_anual: float, anos: int) -> float:
+    
     """Calcula o montante final obtido por juros compostos."""
+
     montante = capital * ((1 + (taxa_anual / 100)) ** anos)
+
     return montante
 
-def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float, anos: int, taxa_anual: float) -> float:
+
+
+
+def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float, anos: int, taxa_anual: float
+    ) -> float:
     """Calcula o patrimônio acumulado para aposentadoria."""
     meses = anos * 12
     taxa_mensal = (taxa_anual / 100) / 12
@@ -19,8 +27,12 @@ def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float, anos: 
         saldo = (saldo + aporte_mensal) * (1 + taxa_mensal)
     return saldo
 
+
+
+
 def calcular_irrf(salario_bruto: float) -> float:
     """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
+
     if salario_bruto <= 2259.20:
         return 0.0
     elif salario_bruto <= 2826.65:
@@ -31,11 +43,18 @@ def calcular_irrf(salario_bruto: float) -> float:
         return (salario_bruto * 0.225) - 662.77
 
 
-def calcular_parcela_price(valor_emprestimo: float, taxa_mensal: float, meses: int) -> float:
+
+
+
+def calcular_parcela_price(
+     valor_emprestimo: float, taxa_mensal: float, meses: int
+         ) -> float:
     """Calcula o valor da parcela fixa em um financiamento pela Tabela Price."""
     i = taxa_mensal / 100
     parcela = valor_emprestimo * (i * ((1 + i) ** meses)) / (((1 + i) ** meses) - 1)
     return parcela
+
+
 
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
