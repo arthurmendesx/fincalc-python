@@ -1,6 +1,5 @@
 # FinCalc - Sistema de Cálculos Financeiros em Python
 
-
 def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> float:
     """Calcula o montante final obtido por juros simples."""
     juros = capital * (taxa_anual / 100) * anos
@@ -37,9 +36,6 @@ def calcular_irrf(salario_bruto: float) -> float:
         return (salario_bruto * 0.225) - 662.77
 
 
-
-
-
 def calcular_parcela_price(
     valor_emprestimo: float, taxa_mensal: float, meses: int
 ) -> float:
@@ -49,8 +45,6 @@ def calcular_parcela_price(
     denominador = ((1 + i) ** meses) - 1
     parcela = valor_emprestimo * (numerador / denominador)
     return parcela
-
-
 
 
 if __name__ == "__main__":
