@@ -1,12 +1,17 @@
 # FinCalc - Sistema de Cálculos Financeiros em Python
 
-def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> float:
+
+def calcular_juros_simples(
+    capital: float, taxa_anual: float, anos: int
+) -> float:
     """Calcula o montante final obtido por juros simples."""
     juros = capital * (taxa_anual / 100) * anos
     return capital + juros
 
 
-def calcular_juros_compostos(capital: float, taxa_anual: float, anos: int) -> float:
+def calcular_juros_compostos(
+    capital: float, taxa_anual: float, anos: int
+) -> float:
     """Calcula o montante final obtido por juros compostos."""
     montante = capital * ((1 + (taxa_anual / 100)) ** anos)
     return montante
@@ -39,9 +44,10 @@ def calcular_irrf(salario_bruto: float) -> float:
 def calcular_parcela_price(
     valor_emprestimo: float, taxa_mensal: float, meses: int
 ) -> float:
-    """Calcula o valor da parcela fixa em um financiamento pela Tabela Price."""
+    """Calcula o valor da parcela fixa em um financiamento pela
+    Tabela Price."""
     i = taxa_mensal / 100
-    numerador = i * ((1 + i) ** meses)
+    numerador = (1 + i) ** meses
     denominador = ((1 + i) ** meses) - 1
     parcela = valor_emprestimo * (numerador / denominador)
     return parcela
@@ -57,7 +63,9 @@ if __name__ == "__main__":
     print(f"Juros Compostos: R$ {montante_comp:.2f}")
 
     patrimonio = calcular_aposentadoria(10000.0, 500.0, 20, 6.0)
-    print(f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}")
+    print(
+        f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}"
+    )
 
     imposto = calcular_irrf(3000.0)
     print(f"Imposto de Renda (Salário R$ 3.000): R$ {imposto:.2f}")
