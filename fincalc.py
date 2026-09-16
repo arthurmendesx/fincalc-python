@@ -73,3 +73,13 @@ if __name__ == "__main__":
     # TESTE DO ALUNO 3
     valor_parcela = calcular_parcela_price(10000.0, 1.5, 12)
     print(f"Amortização Price (Parcela): R$ {valor_parcela:.2f}")
+
+def calcular_valor_futuro(aporte_mensal: float, taxa_mensal: float, meses: int) -> float:
+    """Calcula o valor futuro acumulado com aportes mensais recorrentes."""
+    i = taxa_mensal / 100
+    vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
+    return vf
+
+# TESTE DO ALUNO 4
+valor_futuro = calcular_valor_futuro(500.0, 0.5, 24)
+print(f"Valor Futuro com Aportes: R$ {valor_futuro:.2f}")
