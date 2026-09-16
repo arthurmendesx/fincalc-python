@@ -7,3 +7,4 @@ Aplicação financeira simples para testes do grupo:
 - Marcos Schuart - RA:1261931350
 - Daniel Andrade Lopes RA:1261946795
 - Lucas Lima Silva de Paula - 1261937681
+- Victor Guimarães Rodrigues - 1261946761
