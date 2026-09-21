@@ -53,6 +53,52 @@ def calcular_parcela_price(
     return parcela
 
 
+# Aluno: Aluno 6
+
+def calcular_juros_simples(capital: float, taxa: float, tempo: float) -> float:
+    """Calcula o montante ou juros simples."""
+    juros = capital * (taxa / 100) * tempo
+    return round(juros, 2)
+
+def calcular_juros_compostos(capital: float, taxa: float, tempo: float) -> float:
+    """Calcula o montante acumulado com juros compostos."""
+    montante = capital * (1 + (taxa / 100)) ** tempo
+    return round(montante, 2)
+
+# Módulo de Cálculos Financeiros - FinCalc
+# Aluno: Aluno 6
+
+def calcular_juros_simples(capital: float, taxa: float, tempo: float) -> float:
+    """Calcula o montante ou juros simples."""
+    juros = capital * (taxa / 100) * tempo
+    return round(juros, 2)
+
+def calcular_juros_compostos(capital: float, taxa: float, tempo: float) -> float:
+    """Calcula o montante acumulado com juros compostos."""
+    montante = capital * (1 + (taxa / 100)) ** tempo
+    return round(montante, 2)
+
+if __name__ == "__main__":
+    # Testando as funções implementadas
+    cap = 1000.0
+    tx = 5.0
+    tmp = 12.0
+    
+    print(f"Capital Inicial: R$ {cap}")
+    print(f"Juros Simples (12 meses): R$ {calcular_juros_simples(cap, tx, tmp)}")
+    print(f"Juros Compostos (12 meses): R$ {calcular_juros_compostos(cap, tx, tmp)}")
+
+    #antes
+if __name__ == "__main__":
+    # Testando as funções implementadas
+    cap = 1000.0
+    tx = 5.0
+    tmp = 12.0
+    
+    print(f"Capital Inicial: R$ {cap}")
+    print(f"Juros Simples (12 meses): R$ {calcular_juros_simples(cap, tx, tmp)}")
+    print(f"Juros Compostos (12 meses): R$ {calcular_juros_compostos(cap, tx, tmp)}")
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
 
@@ -69,6 +115,14 @@ if __name__ == "__main__":
 
     imposto = calcular_irrf(3000.0)
     print(f"Imposto de Renda (Salário R$ 3.000): R$ {imposto:.2f}")
+
+# Teste do Aluno 6 - Conversão de Taxa de Juros
+def converter_taxa_anual_para_mensal(taxa_anual):
+    # Fórmula simples para converter taxa anual para mensal (ou equivalente)
+    return taxa_anual / 12
+    
+    taxa_mensal = converter_taxa_anual_para_mensal(12.68)
+    print(f"Taxa Mensal (12,68% ao ano): {taxa_mensal:.2f}%")
 
     # TESTE DO ALUNO 3
     valor_parcela = calcular_parcela_price(10000.0, 1.5, 12)
@@ -87,3 +141,4 @@ def calcular_valor_futuro(
 # TESTE DO ALUNO 4
 valor_futuro = calcular_valor_futuro(500.0, 0.5, 24)
 print(f"Valor Futuro com Aportes: R$ {valor_futuro:.2f}")
+
