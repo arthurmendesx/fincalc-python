@@ -47,7 +47,7 @@ def calcular_parcela_price(
     """Calcula o valor da parcela fixa em um financiamento pela
     Tabela Price."""
     i = taxa_mensal / 100
-    numerador = (1 + i) ** meses
+    numerador = i * ((1 + i) ** meses)
     denominador = ((1 + i) ** meses) - 1
     parcela = valor_emprestimo * (numerador / denominador)
     return parcela
@@ -97,4 +97,3 @@ if __name__ == "__main__":
     # TESTE DO ALUNO 5
     depreciacao_anual = calcular_depreciacao_linear(100000.0, 45000.0, 8)
     print(f"Depreciação anual: R$ {depreciacao_anual:.2f}")
-    
