@@ -47,10 +47,26 @@ def calcular_parcela_price(
     """Calcula o valor da parcela fixa em um financiamento pela
     Tabela Price."""
     i = taxa_mensal / 100
-    numerador = (1 + i) ** meses
+    numerador = i * ((1 + i) ** meses)
     denominador = ((1 + i) ** meses) - 1
     parcela = valor_emprestimo * (numerador / denominador)
     return parcela
+
+
+def calcular_valor_futuro(
+    aporte_mensal: float, taxa_mensal: float, meses: int
+) -> float:
+    """Calcula o valor futuro acumulado."""
+    i = taxa_mensal / 100
+    vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
+    return vf
+
+
+def calcular_depreciacao_linear(
+    valor_inicial: float, valor_residual: float, vida_util_anos: int
+) -> float:
+    """Calcula o valor de depreciação anual de um ativo corporativo."""
+    return (valor_inicial - valor_residual) / vida_util_anos
 
 
 if __name__ == "__main__":
@@ -74,16 +90,10 @@ if __name__ == "__main__":
     valor_parcela = calcular_parcela_price(10000.0, 1.5, 12)
     print(f"Amortização Price (Parcela): R$ {valor_parcela:.2f}")
 
+    # TESTE DO ALUNO 4
+    valor_futuro = calcular_valor_futuro(500.0, 0.5, 24)
+    print(f"Valor Futuro com Aportes: R$ {valor_futuro:.2f}")
 
-def calcular_valor_futuro(
-    aporte_mensal: float, taxa_mensal: float, meses: int
-) -> float:
-    """Calcula o valor futuro acumulado."""
-    i = taxa_mensal / 100
-    vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
-    return vf
-
-
-# TESTE DO ALUNO 4
-valor_futuro = calcular_valor_futuro(500.0, 0.5, 24)
-print(f"Valor Futuro com Aportes: R$ {valor_futuro:.2f}")
+    # TESTE DO ALUNO 5
+    depreciacao_anual = calcular_depreciacao_linear(100000.0, 45000.0, 8)
+    print(f"Depreciação anual: R$ {depreciacao_anual:.2f}")
