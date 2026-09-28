@@ -7,3 +7,4 @@ Aplicação financeira simples para testes do grupo:
 - Marcos Schuart - RA: 1261931350
 - Daniel Andrade Lopes - RA: 1261946795
 - Victor Guimarães Rodrigues - RA: 1261946761
+- Luiz Henrique Santos Heringer - RA: 1261943031
