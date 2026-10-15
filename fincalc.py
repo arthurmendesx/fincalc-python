@@ -100,6 +100,7 @@ if __name__ == "__main__":
     imposto = calcular_irrf(3000.0)
     print(f"Imposto de Renda (Salário R$ 3.000): R$ {imposto:.2f}")
 
+    # TESTE DO ALUNO 7
     receita = 10000.0
     custos = 7000.0
 
