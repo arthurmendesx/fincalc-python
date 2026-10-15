@@ -1,4 +1,4 @@
-  name: FinCalc CI/CD Pipeline
+name: FinCalc CI/CD Pipeline
 
 on:
   push:
