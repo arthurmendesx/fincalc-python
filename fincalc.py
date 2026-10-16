@@ -105,6 +105,11 @@ if __name__ == "__main__":
         f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}"
     )
 
+    # TESTE DO ALUNO 2
+    imposto = calcular_irrf(3000.0)
+    print(f"Imposto de Renda (Salário R$ 3.000): R$ {imposto:.2f}")
+
+    # TESTE DO ALUNO 8
     rendimento = calcular_rendimento_real(10.0, 4.0)
     print(
         f"Rendimento Real (10% nominal, 4% inflação): {rendimento:.2f}%"
