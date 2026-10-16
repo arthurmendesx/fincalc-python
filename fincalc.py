@@ -83,6 +83,14 @@ def calcular_margem_liquida(receita_total: float, custos_totais: float) -> float
     return (lucro / receita_total) * 100
 
 
+def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
+    """Calcula a taxa de retorno real descontada a inflação."""
+    retorno_real = (
+        (1 + (ganho_nominal / 100)) / (1 + (inflacao / 100))
+    ) - 1
+    return retorno_real * 100
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
 
@@ -97,8 +105,10 @@ if __name__ == "__main__":
         f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}"
     )
 
-    imposto = calcular_irrf(3000.0)
-    print(f"Imposto de Renda (Salário R$ 3.000): R$ {imposto:.2f}")
+    rendimento = calcular_rendimento_real(10.0, 4.0)
+    print(
+        f"Rendimento Real (10% nominal, 4% inflação): {rendimento:.2f}%"
+    )
 
     # TESTE DO ALUNO 7
     receita = 10000.0
