@@ -34,15 +34,26 @@ def calcular_aposentadoria(
 
 
 def calcular_irrf(salario_bruto: float) -> float:
-    """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
-    if salario_bruto <= 2259.20:
-        return 0.0
-    elif salario_bruto <= 2826.65:
-        return (salario_bruto * 0.075) - 169.44
-    elif salario_bruto <= 3751.05:
-        return (salario_bruto * 0.15) - 381.44
-    else:
-        return (salario_bruto * 0.225) - 662.77
+    """Calcula o IRRF mensal pela tabela progressiva.
+
+    Levanta ValueError se o salário for negativo.
+    """
+    if salario_bruto < 0:
+        raise ValueError("O salário bruto não pode ser negativo.")
+
+    # (limite superior da faixa, alíquota, parcela a deduzir)
+    faixas = [
+        (2259.20, 0.0, 0.0),
+        (2826.65, 0.075, 169.44),
+        (3751.05, 0.15, 381.44),
+        (4664.68, 0.225, 662.77),
+    ]
+
+    for limite, aliquota, deducao in faixas:
+        if salario_bruto <= limite:
+            return round(max(salario_bruto * aliquota - deducao, 0.0), 2)
+
+    return round(salario_bruto * 0.275 - 896.00, 2)
 
 
 def calcular_parcela_price(
