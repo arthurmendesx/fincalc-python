@@ -82,6 +82,8 @@ def calcular_valor_futuro(
     aporte_mensal: float, taxa_mensal: float, meses: int
 ) -> float:
     """Calcula o valor futuro acumulado."""
+    if aporte_mensal < 0:
+        raise ValueError("O aporte mensal não pode ser negativo.")
     i = taxa_mensal / 100
     vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
     return vf
@@ -134,21 +136,6 @@ if __name__ == "__main__":
     imposto = calcular_irrf(3000.0)
     print(f"Imposto de Renda (Salário R$ 3.000): R$ {imposto:.2f}")
 
-    # TESTE DO ALUNO 8
-    rendimento = calcular_rendimento_real(10.0, 4.0)
-    print(
-        f"Rendimento Real (10% nominal, 4% inflação): {rendimento:.2f}%"
-    )
-
-    # TESTE DO ALUNO 7
-    receita = 10000.0
-    custos = 7000.0
-
-    margem = calcular_margem_liquida(receita, custos)
-
-    print(f"Lucro líquido: R$ {receita - custos:.2f}")
-    print(f"Margem líquida: {margem:.2f}%")
-
     # TESTE DO ALUNO 3
     valor_parcela = calcular_parcela_price(10000.0, 1.5, 12)
     print(f"Amortização Price (Parcela): R$ {valor_parcela:.2f}")
@@ -164,3 +151,18 @@ if __name__ == "__main__":
     # TESTE DO ALUNO 6
     taxa_mensal = converter_taxa_anual_para_mensal(12.0)
     print(f"Taxa mensal equivalente a 12% a.a.: {taxa_mensal:.4f}%")
+
+    # TESTE DO ALUNO 7
+    receita = 10000.0
+    custos = 7000.0
+
+    margem = calcular_margem_liquida(receita, custos)
+
+    print(f"Lucro líquido: R$ {receita - custos:.2f}")
+    print(f"Margem líquida: {margem:.2f}%")
+
+     # TESTE DO ALUNO 8
+    rendimento = calcular_rendimento_real(10.0, 4.0)
+    print(
+        f"Rendimento Real (10% nominal, 4% inflação): {rendimento:.2f}%"
+    )
