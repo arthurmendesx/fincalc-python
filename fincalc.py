@@ -161,7 +161,7 @@ if __name__ == "__main__":
     print(f"Lucro líquido: R$ {receita - custos:.2f}")
     print(f"Margem líquida: {margem:.2f}%")
 
-     # TESTE DO ALUNO 8
+    # TESTE DO ALUNO 8
     rendimento = calcular_rendimento_real(10.0, 4.0)
     print(
         f"Rendimento Real (10% nominal, 4% inflação): {rendimento:.2f}%"
