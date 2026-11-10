@@ -93,6 +93,12 @@ def calcular_depreciacao_linear(
     valor_inicial: float, valor_residual: float, vida_util_anos: int
 ) -> float:
     """Calcula o valor de depreciação anual de um ativo corporativo."""
+    if valor_inicial < 0 or valor_residual < 0:
+        raise ValueError("Valores inicial e residual não podem ser negativos.")
+    if vida_util_anos <= 0:
+        raise ValueError("A vida útil deve ser maior que zero.")
+    if valor_residual > valor_inicial:
+        raise ValueError("O valor residual não pode exceder o valor inicial.")
     return (valor_inicial - valor_residual) / vida_util_anos
 
 
