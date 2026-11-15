@@ -104,13 +104,18 @@ def calcular_depreciacao_linear(
 
 def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
     """Converte uma taxa anual (%) na taxa mensal equivalente (%)."""
+    if taxa_anual <= -100:
+        raise ValueError("A taxa anual não pode ser menor ou igual a -100%.")
     return ((1 + taxa_anual / 100) ** (1 / 12) - 1) * 100
 
 
 def calcular_margem_liquida(receita_total: float, custos_totais: float) -> float:
     """Calcula a margem de lucro líquida percentual de uma operação."""
     if receita_total == 0:
-        return 0.0
+        raise ValueError("A receita total não pode ser zero.")
+
+    if custos_totais < 0:
+        raise ValueError("Os custos não podem ser negativos.")
 
     lucro = receita_total - custos_totais
     return (lucro / receita_total) * 100
@@ -118,6 +123,8 @@ def calcular_margem_liquida(receita_total: float, custos_totais: float) -> float
 
 def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
     """Calcula a taxa de retorno real descontada a inflação."""
+    if inflacao <= -100:
+        raise ValueError("A inflação não pode ser menor ou igual a -100%.")
     retorno_real = (
         (1 + (ganho_nominal / 100)) / (1 + (inflacao / 100))
     ) - 1
