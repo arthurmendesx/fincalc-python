@@ -4,7 +4,7 @@
 def calcular_juros_simples(
     capital: float, taxa_anual: float, anos: int
 ) -> float:
-    """Calcula o montante final obtido por juros simples."""
+    """Calcula o montante final por juros simples: M = C * (1 + i * t)."""
     juros = capital * (taxa_anual / 100) * anos
     return capital + juros
 
